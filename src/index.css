@@ -93,19 +93,27 @@ nav .logo-container .logo {
         to bottom,
         rgba(0, 0, 0, .65) 0%,
         rgba(0, 0, 0, 0) 100%
-   ) /* , url('images/bg.png') */
+   );
+   background-image: url('./images/bg2.png');
+   background-position: center;
+}
+
+.home {
+    margin-top: 30vh;
 }
 
 
 /* -------AUTHMODAL-------- */
 
 .auth-modal {
-    /* position: absolute; */
-    top: 175px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
     margin-left: auto;
     margin-right: auto;
     max-width: 360px;
-    height: 600px;
+    height: 500px;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     padding: 40px;
@@ -116,7 +124,7 @@ nav .logo-container .logo {
     cursor: pointer;
 }
 
-.auth-modal for {
+.auth-modal form {
     display: flex;
     flex-direction: column;
 }
@@ -126,4 +134,127 @@ nav .logo-container .logo {
     padding: 8px;
     margin: 8px;
     font-size: 17px;
+}
+
+/* -------Onboarding Page-------- */
+
+.onboarding {
+    border-top: 1px solid rgb(214, 214, 214);
+}
+
+.onboarding form {
+    display: flex;
+    justify-content: center;
+}
+
+.onboarding form section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 40%;
+    text-align: start;
+}
+
+.onboarding form input {
+    padding: 15px 30px;
+    margin: 10px 0;
+    font-size: 15px;
+    border: solid 2px rgb(219,219,219);
+    border-radius: 10px;
+}
+
+.onboarding form input::-webkit-outer-spin-button,
+.onboarding form input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.onboarding form label {
+    margin: 10px 0;
+}
+
+.onboarding form .multiple-input-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.onboarding form .multiple-input-container input {
+    margin-right: 10px;
+}
+
+.onboarding form .multiple-input-container label {
+    padding: 10px;
+    border: solid 2px rgb(144,144,144);
+    border-radius: 10px;
+    transition: all 0.3s;
+    margin-right: 10px;
+}
+
+.onboarding form input[type="radio"] {
+    display: none;
+}
+
+.onboarding form input[type="number"] {
+    width: 10%;
+}
+
+.onboarding form input[type="radio"]:checked + label {
+    border: solid 2px rgb(221,39,22);
+} 
+
+.onboarding form input[type="submit"]:hover {
+    background-color: rbg(125,125,125);
+}
+
+.onboarding form input[type="submit"]:active {
+    background-color: rbg(226,115,155);
+}
+
+.onboarding form .photo-container img {
+    width: 100%;
+    border-radius: 30px;
+}
+
+
+/* -------DashBoard-------- */
+
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard .swipe-container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.swipe {
+    position: absolute;
+  }
+  
+.dashboard .card-container {
+    width: 400px;
+    height: 650px;
+  }
+  
+.card {
+    width: 400px;
+    height: 650px;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.dashboard .swipe-info {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
 }
