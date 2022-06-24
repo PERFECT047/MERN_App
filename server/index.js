@@ -6,8 +6,9 @@ const { v4 : uuidv4 } = require('uuid')
 const jwt = require('jsonwebtoken')
 const cors = require('cors')
 const bcrypt = require('bcryptjs');
+require('dotenv').config()
 
-const uri = 'mongodb+srv://perfect047:mypassword@cluster0.vay8c.mongodb.net/?retryWrites=true&w=majority'
+const uri = process.env.URI 
 const app = express()
 app.use(cors())
 app.use(express.json())
@@ -189,7 +190,6 @@ app.put('/addmatch', async (req, res) => {
 app.get ('/users', async (req, res) => {
     const client = new MongoClient(uri)
     const userIds = JSON.parse(req.query.userIds)
-    console.log(userIds)
 
     try {
         await client.connect()
@@ -208,9 +208,49 @@ app.get ('/users', async (req, res) => {
         ]
 
         const foundUsers = await users.aggregate(pipeline).toArray()
-        console.log(foundUsers)
         res.send(foundUsers)
 
+    } finally {
+        await client.close()
+    }
+})
+
+
+app.get('/messages', async (req, res) => {
+    const client = new MongoClient(uri)
+    const {userId, correspondingUserId} = req.query
+    
+    try {
+        await client.connect()
+        const database = client.db('app-data')
+        const messages = database.collection('messages')
+
+        const query = {
+            from_userId: userId, to_userId: correspondingUserId
+        }
+
+        const foundMessages = await messages.find(query).toArray()
+
+        res.send(foundMessages)
+    } finally {
+        await client.close()
+    }
+})
+
+
+app.post('/message', async (req, res) => {
+    const client = new MongoClient(uri)
+    const message = req.body.message
+    
+    try {
+        await client.connect()
+        const database = client.db('app-data')
+        const messages = database.collection('messages')
+
+        const insertedMessage = await messages.insertOne(message)
+
+        res.send(insertedMessage)
+        
     } finally {
         await client.close()
     }
