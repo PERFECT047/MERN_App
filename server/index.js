@@ -1,4 +1,4 @@
-const PORT = 8000
+const PORT = process.env.PORT || 8000
 
 const express = require('express')
 const { MongoClient, MongoUnexpectedServerResponseError } = require('mongodb')
@@ -8,7 +8,7 @@ const cors = require('cors')
 const bcrypt = require('bcryptjs');
 require('dotenv').config()
 
-const uri = process.env.URI 
+const uri = 'mongodb+srv://perfect047:mypassword@cluster0.vay8c.mongodb.net/?retryWrites=true&w=majority' 
 const app = express()
 app.use(cors())
 app.use(express.json())
