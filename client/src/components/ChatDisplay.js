@@ -44,9 +44,18 @@ const ChatDisplay = ({user, clickedUser}) => {
     useEffect(() => {
 
         getUsersMessages()
+        
+        
+    }, [usersMessages])
+
+    useEffect(() => {
+
         getClickedUsersMessages()
         
-    }, [])
+        
+    }, [clickedUsersMessages])
+
+    
 
 
     const messages = []

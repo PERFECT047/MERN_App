@@ -299,6 +299,10 @@ nav .logo-container .logo {
     color: white;
 }
 
+.chat-container .log-out-icon:hover {
+    cursor: pointer;
+}
+
 .img-container {
     height: 30px;
     width: 30px;
