@@ -2,7 +2,7 @@
 
 A small web app where you can slide match cards to potentially match with the other, have real-time chat with them, have your user secure authentification feauture using hashing, also cookies to validate session so you wont have to log back in if logged once in 24hrs.
 
-## E-Commerce Demo Link
+## App Link
 
 You can watch the site here 
 [Click Me](https://gregarious-praline-816120.netlify.app)
