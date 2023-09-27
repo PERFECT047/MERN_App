@@ -14,6 +14,7 @@ You can watch the site here
 - Build Login Page with full login functionality
 - Cookies functionality to save session and refresh session every time the page is visited
 - MongoDB is used for data base
+- Match suggestion are provided based on user preferences and location.
 - Matches are saved for the user
 - Real time chat with the matches
 - Fully responsive design
